@@ -15,7 +15,13 @@ def number_guessing_game():
     while attempts < max_attempts:
         print("--------------------------------------------------")
         print("Attempt:", attempts+1)
-        guess = int(input("Enter your guess: "))
+        
+        try:
+            guess = int(input("Enter your guess: "))
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid number.\033[0m")
+            continue
+
         attempts += 1
 
         if guess == number:
